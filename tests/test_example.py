@@ -1,23 +1,33 @@
+import unittest
+from appium import webdriver
+from appium.options.android import UiAutomator2Options
+from appium.webdriver.common.appiumby import AppiumBy
 
-# tests/test_example.py
-from utils.appium_utils import initialize_appium_driver
-import pytest
+capabilities = dict(
+    platformName='Android',
+    automationName='uiautomator2',
+    deviceName='dbe407da',
+    # appPackage='com.android.settings',
+    # appActivity='.Settings',
+    # language='en',
+    # locale='US'
+)
 
+appium_server_url = 'http://localhost:4723'
 
-@pytest.fixture(scope="function")
-def appium_driver(request):
-    driver = initialize_appium_driver()
+class TestAppium(unittest.TestCase):
+    def setUp(self) -> None:
+        self.driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
 
-    def fin():
-        driver.quit()
+    def tearDown(self) -> None:
+        if self.driver:
+            self.driver.quit()
 
-    request.addfinalizer(fin)
-    return driver
+    def test_find_battery(self) -> None:
+        el = self.driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
+        el.click()
 
+if __name__ == '__main__':
+    unittest.main()
 
-def test_example(appium_driver):
-    # Ваш код теста с использованием appium_driver
-    # Например:
-    element = appium_driver.find_element_by_id("com.example.app:id/button")
-    element.click()
-    assert "Success" in appium_driver.page_source
+    
