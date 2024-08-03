@@ -1,5 +1,5 @@
 import pytest
-
+from selenium import webdriver
 
 @pytest.fixture
 def driver():
@@ -8,3 +8,12 @@ def driver():
     yield "__ROOT_CONFTEST__"
     print()
     print("finish conftest 1")
+
+
+@pytest.fixture
+def some_driver():
+    driver = webdriver.Firefox()
+    yield driver
+    driver.quit()
+
+
