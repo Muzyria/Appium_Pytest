@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 @pytest.fixture
@@ -22,3 +24,4 @@ def test_string(driver, order):
 def test_one(driver):
     print("test one")
     print(driver)
+    time.sleep(0.3)
