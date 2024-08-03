@@ -1,33 +1,24 @@
-import unittest
-from appium import webdriver
-from appium.options.android import UiAutomator2Options
-from appium.webdriver.common.appiumby import AppiumBy
+import pytest
 
-capabilities = dict(
-    platformName='Android',
-    automationName='uiautomator2',
-    deviceName='dbe407da',
-    # appPackage='com.android.settings',
-    # appActivity='.Settings',
-    # language='en',
-    # locale='US'
-)
+@pytest.fixture
+def first_entry():
+    return "a"
 
-appium_server_url = 'http://localhost:4723'
+@pytest.fixture
+def order(first_entry):
+    return [first_entry]
 
-class TestAppium(unittest.TestCase):
-    def setUp(self) -> None:
-        self.driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
 
-    def tearDown(self) -> None:
-        if self.driver:
-            self.driver.quit()
+def test_string(driver, order):
+    print("test string")
+    print(driver)
+    # Act
+    order.append("b")
 
-    def test_find_battery(self) -> None:
-        el = self.driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
-        el.click()
+    # Assert
+    assert order == ["a", "b"]
 
-if __name__ == '__main__':
-    unittest.main()
 
-    
+def test_one(driver):
+    print("test one")
+    print(driver)
