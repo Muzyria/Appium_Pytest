@@ -2,10 +2,9 @@ import pytest
 from selenium import webdriver
 
 
-# @pytest.fixture
-# def add_simple_attribute(request):
-#     # request.node.simple_attribute = "This is a simple attribute"
-#     request.cls.simple_attribute = "This is a simple attribute"
+@pytest.fixture(scope="class" ,autouse=True)
+def add_class_attribute(request):
+    request.cls.class_attribute = "Class-level attribute"
 
 
 @pytest.fixture
