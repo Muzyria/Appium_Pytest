@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture(scope="class" ,autouse=True)
+@pytest.fixture(scope="class", autouse=True)
 def add_class_attribute(request):
     request.cls.class_attribute = "Class-level attribute"
 
