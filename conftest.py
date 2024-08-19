@@ -2,6 +2,16 @@ import pytest
 from selenium import webdriver
 
 
+def pytest_addoption(parser):
+    print("=== START pytest_addoption 1 ===")
+    parser.addoption("--run_slow",
+                     default="False",
+                     # choices=("True", "False")
+                     )
+
+    print("=== END pytest_addoption 1 ===")
+
+
 @pytest.fixture(scope="class", autouse=True)
 def add_class_attribute(request):
     request.cls.class_attribute = "Class-level attribute"
