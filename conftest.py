@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from base.base_test import BaseTest
 
 
 def pytest_addoption(parser):
@@ -32,6 +33,13 @@ def driver(add_multiple_attributes):
     yield "__ROOT_CONFTEST__"
     print()
     print("finish conftest 1")
+
+
+@pytest.fixture(scope="class", autouse=True)
+def start_geco_base():
+    BaseTest.set_gecko_driver()
+    yield
+    BaseTest.stop_gecko_driver()
 
 
 @pytest.fixture

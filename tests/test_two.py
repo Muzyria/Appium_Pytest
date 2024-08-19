@@ -5,16 +5,14 @@ from base.base_test import BaseTest
 
 
 class TestTwo(BaseTest):
-    @pytest.mark.skipif('config.getoption("--run_slow") == "False"')
-    def test_two(self, driver, add_multiple_attributes, request: pytest.FixtureRequest):
+    # @pytest.mark.skipif('config.getoption("--run_slow") == "False"')
+    def test_two(self):
         print()
         print("test two")
         print("----------------------------2------------------------------")
         print()
-        print(driver)
-        print()
-        # print(request.node.attr1)
-        # print(request.cls.my_atr)
-        # print(request.cls.class_attribute)
+        print("HOW TO CHECK GECO DRIVER ?")
+        print(BaseTest.driver_geco.session_id)
+
 
         print("----------------------------2------------------------------")
