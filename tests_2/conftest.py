@@ -1,5 +1,5 @@
 import pytest
-
+from base.base_test import BaseTest
 
 
 def pytest_addoption(parser):
@@ -7,9 +7,6 @@ def pytest_addoption(parser):
     parser.addoption("--my-option1", action="store", default="default_value")
 
     print("=== END pytest_addoption ===")
-
-
-
 
 
 @pytest.fixture
@@ -22,3 +19,10 @@ def driver(add_multiple_attributes, request: pytest.FixtureRequest):
     yield "__ROOT_CONFTEST_2__"
     print()
     print("finish conftest 2")
+
+
+@pytest.fixture(scope="module", autouse=True)
+def start_chrome_base():
+    BaseTest.set_chrome_driver()
+    yield
+    BaseTest.stop_chrome_driver()

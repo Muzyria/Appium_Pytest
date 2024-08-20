@@ -4,8 +4,6 @@ import pytest
 from base.base_test import BaseTest
 
 
-
-
 class TestTwo(BaseTest):
     # @pytest.mark.skipif('config.getoption("--run_slow") == "False"')
     def test_two(self):
