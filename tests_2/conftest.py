@@ -21,7 +21,7 @@ def driver(add_multiple_attributes, request: pytest.FixtureRequest):
     print("finish conftest 2")
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function")
 def start_chrome_base():
     BaseTest.set_chrome_driver()
     yield

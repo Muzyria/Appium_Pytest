@@ -6,7 +6,7 @@ from base.base_test import BaseTest
 
 class TestTwo(BaseTest):
     # @pytest.mark.skipif('config.getoption("--run_slow") == "False"')
-    def test_two(self):
+    def test_two(self, start_geco_base):
         print()
         print("test two")
         print("----------------------------2------------------------------")

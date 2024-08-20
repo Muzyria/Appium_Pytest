@@ -4,7 +4,7 @@ from base.base_test import BaseTest
 
 
 class TestSecond:
-    def test_second(self):
+    def test_second(self, start_chrome_base):
         print()
         print("test second")
         print("----------------------------second------------------------------")

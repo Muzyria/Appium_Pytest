@@ -35,7 +35,7 @@ def driver(add_multiple_attributes):
     print("finish conftest 1")
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="function")
 def start_geco_base():
     BaseTest.set_gecko_driver()
     yield
