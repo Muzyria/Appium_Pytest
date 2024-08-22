@@ -3,7 +3,7 @@ import time
 import pytest
 from base.base_test import BaseTest
 
-@pytest.mark.skip
+# @pytest.mark.skip
 class TestTwo(BaseTest):
     # @pytest.mark.skipif('config.getoption("--run_slow") == "False"')
     def test_two(self, start_geco_base):

@@ -4,7 +4,7 @@ import pytest
 
 from base.base_test import BaseTest
 
-@pytest.mark.skip
+# @pytest.mark.skip
 class TestSecond:
     def test_second(self, start_chrome_base):
         print()
