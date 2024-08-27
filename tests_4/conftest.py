@@ -1,5 +1,3 @@
-
-
 import logging
 import pytest
 import os
@@ -16,7 +14,10 @@ def configure_logging():
 
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    formatter = logging.Formatter(
+        fmt="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"  # Настраиваем формат даты и времени
+    )
 
     # Обработчик для вывода в консоль
     console_handler = logging.StreamHandler()
@@ -31,4 +32,5 @@ def configure_logging():
     logger.addHandler(file_handler)
 
     logger.info("Логирование настроено")
+
 
