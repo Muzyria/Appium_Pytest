@@ -13,9 +13,9 @@ def pytest_addoption(parser):
     print("=== END pytest_addoption 1 ===")
 
 
-@pytest.fixture(scope="class", autouse=True)
-def add_class_attribute(request):
-    request.cls.class_attribute = "Class-level attribute"
+# @pytest.fixture(scope="class", autouse=True)
+# def add_class_attribute(request):
+#     request.cls.class_attribute = "Class-level attribute"
 
 
 @pytest.fixture
