@@ -3,6 +3,11 @@ import pytest
 import os
 
 
+@pytest.fixture(autouse=True)
+def setup(request: pytest.FixtureRequest):
+    request.cls.my = "It is MY"
+
+
 @pytest.fixture(scope="session", autouse=True)
 def configure_logging():
     log_file = "test_log.log"

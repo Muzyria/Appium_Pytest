@@ -18,11 +18,11 @@ def pytest_addoption(parser):
 #     request.cls.class_attribute = "Class-level attribute"
 
 
-@pytest.fixture
-def add_multiple_attributes(request):
-    request.node.attr1 = "Attribute 1"
-    request.node.attr2 = 42
-    request.node.attr3 = [1, 2, 3]
+# @pytest.fixture
+# def add_multiple_attributes(request):
+#     request.node.attr1 = "Attribute 1"
+#     request.node.attr2 = 42
+#     request.node.attr3 = [1, 2, 3]
 
 
 @pytest.fixture

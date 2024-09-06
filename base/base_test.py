@@ -8,9 +8,9 @@ class BaseTest:
     driver_geco: webdriver.Firefox = None
     driver_chrome: webdriver.Chrome = None
 
-    @pytest.fixture(autouse=True)
-    def setup(self, request: pytest.FixtureRequest):
-        request.cls.my_atr = "it is My atr"
+    # @pytest.fixture(autouse=True)
+    # def setup(self, request: pytest.FixtureRequest):
+    #     request.cls.my_atr = "it is My atr"
 
     @classmethod
     def set_gecko_driver(cls):
